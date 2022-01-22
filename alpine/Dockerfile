@@ -1,7 +1,7 @@
 FROM alpine:3.23
 
 RUN set -eux; \
-    apk add --no-cache ca-certificates libstdc++ su-exec libpq; \
+    apk add --no-cache ca-certificates libstdc++ su-exec libpq libmaxminddb-dev; \
     addgroup -g 9987 ts3server; \
     adduser -u 9987 -Hh /var/ts3server -G ts3server -s /sbin/nologin -D ts3server; \
     install -d -o ts3server -g ts3server -m 775 /var/ts3server /var/run/ts3server /opt/ts3server
